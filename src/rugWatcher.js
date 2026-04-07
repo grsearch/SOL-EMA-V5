@@ -33,6 +33,8 @@ const RUG_TIME_WINDOW_MS            = parseInt(process.env.RUG_TIME_WINDOW_MS   
 
 // 买单对冲比例：窗口内买单总金额 > 卖单总金额 × 此比例 → 有足够买盘，不触发
 const RUG_BUY_OFFSET_RATIO = parseFloat(process.env.RUG_BUY_OFFSET_RATIO || '0.3');
+
+const TRADE_WINDOW = 30;  // 每个 token 保留最近30笔交易
 // 规则B：小额高频无买单出货（针对1秒内连续小额卖单）
 const RUG_HFREQ_MIN_SELLS  = parseInt(process.env.RUG_HFREQ_MIN_SELLS    || '10');    // 2秒内卖单数门槛
 // RUG_HFREQ_MAX_GAS 已弃用，改用 RUG_GAS_DIFF_THRESHOLD 统一判断Gas一致性
